@@ -1,0 +1,6 @@
+[submodule "7thwok/glfw"]
+	path = 7thwok/glfw
+	url = https://github.com/omgbebebe/glfw.git
+[submodule "7thwok/nanovg"]
+	path = 7thwok/nanovg
+	url = https://github.com/omgbebebe/nanovg.git
