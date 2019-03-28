@@ -20,6 +20,7 @@ add_library(nanovg SHARED
 	7thwok/nanovg/example/perf.c
 )
 target_include_directories(nanovg PRIVATE . 7thwok/nanovg/src/ 7thwok/nanovg/example/ )
+target_link_libraries(nanovg glfw GL)
 
 add_library(smas SHARED
 	smas.c

@@ -10,7 +10,7 @@
 
 int blowup = 0;
 int screenshot = 0;
-int premult = 0;
+int premult = 1;
 
 void errorcb(int error, const char* desc)
 {
