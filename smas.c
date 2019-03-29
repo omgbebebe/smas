@@ -7,6 +7,7 @@
 #include "nanovg_gl.h"
 #include "nanovg_gl_utils.h"
 #include "perf.h"
+#include <unistd.h>
 
 int blowup = 0;
 int screenshot = 0;
@@ -135,6 +136,7 @@ nvgText(vg, x+w/2,y+16, title, NULL);
 
 		glfwSwapBuffers(window);
         glfwPollEvents();
+		usleep(100 * 1000);
 	}
 
 	nvgDeleteGLES3(vg);
