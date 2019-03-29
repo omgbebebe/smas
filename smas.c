@@ -73,6 +73,14 @@ int init(void)
 	glfwSetTime(0);
 	prevt = glfwGetTime();
 
+	int fontNormal, fontBold, fontIcons, fontEmoji;
+	fontIcons = nvgCreateFont(vg, "icons", "../7thwok/nanovg/example/entypo.ttf");
+	fontNormal = nvgCreateFont(vg, "sans", "../7thwok/nanovg/example/Roboto-Regular.ttf");
+	fontBold = nvgCreateFont(vg, "sans-bold", "../7thwok/nanovg/example/Roboto-Bold.ttf");
+	fontEmoji = nvgCreateFont(vg, "emoji", "../7thwok/nanovg/example/NotoEmoji-Regular.ttf");
+	nvgAddFallbackFontId(vg, fontNormal, fontEmoji);
+	nvgAddFallbackFontId(vg, fontBold, fontEmoji);
+
 	while (!glfwWindowShouldClose(window)){
 		double mx, my, t, dt;
         int winWidth, winHeight;
@@ -103,6 +111,24 @@ int init(void)
 
         nvgBeginFrame(vg, winWidth, winHeight, pxRatio);
 		renderGraph(vg, 5,5, &fps);
+
+const char* title = "omgbebebe";
+float x = 100.0;
+float y = 100.0;
+float w = 100.0;
+float h = 100.0;
+nvgFontSize(vg, 18.0f);
+nvgFontFace(vg, "sans-bold");
+nvgTextAlign(vg,NVG_ALIGN_CENTER|NVG_ALIGN_MIDDLE);
+
+nvgFontBlur(vg,2);
+nvgFillColor(vg, nvgRGBA(0,0,0,128));
+nvgText(vg, x+w/2,y+16+1, title, NULL);
+
+nvgFontBlur(vg,0);
+nvgFillColor(vg, nvgRGBA(220,220,220,160));
+nvgText(vg, x+w/2,y+16, title, NULL);
+
 		nvgEndFrame(vg);
 
 		glEnable(GL_DEPTH_TEST);
